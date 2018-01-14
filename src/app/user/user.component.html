@@ -1,0 +1,14 @@
+<form (ngSubmit)="registerUser()" [formGroup] ="User">
+  <label for="email">Email</label>
+  <input type="text" name="email" id="email" formControlName="email">
+  <div class = "error" *ngIf ="User.get('email').hasError('required') && User.get('email').touched">
+      Email is required
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" formControlName="password">
+  <div class = "error" *ngIf ="User.get('password').hasError('required') && User.get('password').touched">
+    Password is required
+</div>
+  <button type="submit">Sign Up</button>
+</form>
