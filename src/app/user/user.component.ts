@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
      this.User = this.formBuilder.group({
-      email: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required]]
     });
   }
@@ -26,10 +26,11 @@ export class UserComponent implements OnInit {
   registerUser() {
     if(this.User && this.User.valid) {
       // console.log(this.User.value);
-      this.userService.register(this.User.value).toPromise().then(
+      this.userService.register(this.User.value).subscribe(
         data => {
          if(data.success  === true) {
-          this.router.navigate(['/register']);         }
+          this.router.navigate(['/register']);         
+        }
         },
         err => {
           alert("Some Error Occurred");

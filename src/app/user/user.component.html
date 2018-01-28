@@ -4,11 +4,14 @@
   <div class = "error" *ngIf ="User.get('email').hasError('required') && User.get('email').touched">
       Email is required
   </div>
+  <!-- <div class = "error" *ngIf ="User.get('email').hasError('required') && User.get('email').touched">
+    Invalid Email
+  </div> -->
 
   <label for="password">Password</label>
   <input type="password" name="password" id="password" formControlName="password">
   <div class = "error" *ngIf ="User.get('password').hasError('required') && User.get('password').touched">
     Password is required
 </div>
-  <button type="submit">Sign Up</button>
+  <button type="submit">Login</button>
 </form>
